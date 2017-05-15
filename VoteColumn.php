@@ -10,6 +10,7 @@ use yii\grid\Column;
 use kartik\switchinput\SwitchInput;
 use yii\helpers\Url;
 use yii\bootstrap\Html;
+use yii\helpers\Inflector;
 
 class VoteColumn extends Column
 {
