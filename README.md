@@ -37,9 +37,11 @@ echo  GridView::widget([
          'columns' => [
              ['class' => 'yii\grid\SerialColumn'],
              [
-                 'class' => 'common\components\grid\VoteColumn',
+                 'class' => 'fgh151\vote\VoteColumn',
                  'attribute' => 'vote',
-                 'action' => 'runetidusers/ajax-vote',
+                 'onText' => 'Approve',
+                 'offText' => 'Not approve',
+                 'action' => 'controller/ajax-vote',
                  'filterInputOptions' => [
                      'class' => 'form-control'
                  ]

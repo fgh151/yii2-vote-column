@@ -82,6 +82,13 @@ class VoteColumn extends Column
     public $action;
 
     /**
+     * Swithcer labels
+     * @var string
+     */
+    public $onText = 'Одобрен';
+    public $offText = 'Не одобрен';
+
+    /**
      * @inheritdoc
      * @throws \Exception
      */
@@ -89,12 +96,13 @@ class VoteColumn extends Column
     {
         parent::init();
         $this->content = function ($model, $key, $index, $column) {
+            $attribute = $this->attribute;
             return SwitchInput::widget([
                 'name' => 'vote',
-                'value' => (bool)$model->vote,
+                'value' => (bool)$model->$attribute,
                 'pluginOptions' => [
-                    'onText' => 'Одобрен',
-                    'offText' => 'Не одобрен'
+                    'onText' => $this->onText,
+                    'offText' => $this->offText
                 ],
                 'pluginEvents' => [
                     'switchChange.bootstrapSwitch' => 'function() { $.get( "' . Url::to([$this->action, 'id' => $model->id]) . '") }',
