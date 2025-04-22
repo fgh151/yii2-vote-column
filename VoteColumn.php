@@ -9,11 +9,16 @@ use yii\data\ArrayDataProvider;
 use yii\grid\Column;
 use kartik\switchinput\SwitchInput;
 use yii\helpers\Url;
-use yii\bootstrap\Html;
+use yii\helpers\Html;
 use yii\helpers\Inflector;
 
 class VoteColumn extends Column
 {
+    /**
+     * Table header prompt
+     * @var string
+     */
+    public $prompt = 'Статус';
 
     /**
      * Show filter?
@@ -127,7 +132,7 @@ class VoteColumn extends Column
             } else {
                 $error = '';
             }
-            $options = array_merge(['prompt' => 'Статус'], $this->filterInputOptions);
+            $options = array_merge(['prompt' => $this->prompt], $this->filterInputOptions);
             return Html::activeDropDownList($model, $this->attribute, [
                     $this->grid->formatter->booleanFormat[0],
                     $this->grid->formatter->booleanFormat[1],

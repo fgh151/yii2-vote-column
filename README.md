@@ -10,7 +10,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist fgh151/yii2-vote-column "*"
+composer require --prefer-dist fgh151/yii2-vote-column "*"
 ```
 
 or add
@@ -37,7 +37,7 @@ echo  GridView::widget([
          'columns' => [
              ['class' => 'yii\grid\SerialColumn'],
              [
-                 'class' => 'fgh151\vote\VoteColumn',
+                 'class' => fgh151\vote\VoteColumn::class,
                  'attribute' => 'vote',
                  'onText' => 'Approve',
                  'offText' => 'Not approve',
@@ -57,3 +57,4 @@ Params
 * attribute - boolean model attribute to store vote
 * action - action to switch vote example see in phpdoc comments
 * filterInputOptions - see in ```yii\grid\DataColumn.php```
+* prompt - Grid view filter prompt
